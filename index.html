@@ -81,11 +81,11 @@
     async function connect() {
       bluetoothDevice = await navigator.bluetooth.requestDevice({
         filters: [{ namePrefix: "BBC micro:bit" }],
-        optionalServices: ["0000ffe3-0000-1000-8000-00805f9b34fb"]
+        optionalServices: ["6e400001-b5a3-f393-e0a9-e50e24dcca9e"]
       });
       bluetoothServer = await bluetoothDevice.gatt.connect();
-      const service = await bluetoothServer.getPrimaryService("0000ffe3-0000-1000-8000-00805f9b34fb");
-      txCharacteristic = await service.getCharacteristic("0000ffe1-0000-1000-8000-00805f9b34fb");
+      const service = await bluetoothServer.getPrimaryService("6e400003-b5a3-f393-e0a9-e50e24dcca9e");
+      txCharacteristic = await service.getCharacteristic("6e400002-b5a3-f393-e0a9-e50e24dcca9e");
       alert("마이크로비트 연결 완료!");
     }
 
@@ -98,3 +98,4 @@
   </script>
 </body>
 </html>
+
