@@ -80,8 +80,8 @@
 
     async function connect() {
       bluetoothDevice = await navigator.bluetooth.requestDevice({
-        //filters: [{ namePrefix: "BBC micro:bit" }],
-        acceptAllDevices: true,  // 모든 BLE 기기 검색 허용
+        filters: [{ namePrefix: "BBC micro:bit" }],
+        //acceptAllDevices: true,  // 모든 BLE 기기 검색 허용
         optionalServices: ["6e400001-b5a3-f393-e0a9-e50e24dcca9e"]
       });
       bluetoothServer = await bluetoothDevice.gatt.connect();
@@ -99,5 +99,6 @@
   </script>
 </body>
 </html>
+
 
 
